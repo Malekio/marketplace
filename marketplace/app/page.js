@@ -1,5 +1,6 @@
-// app/page.js
 import './HomePage.css';
+import ProductCard from './components/ProductCard';
+import { products } from './data/products';
 
 export default function HomePage() {
   return (
@@ -63,6 +64,14 @@ export default function HomePage() {
           <a href="" className='view-all'>
             Explore All Products <span className='material-symbols-outlined'>arrow_forward</span>
           </a>
+        </div>
+        <div className="products-grid">
+          {products.map((product) => (
+            <ProductCard
+            key={product.id}
+            product={product}
+            />
+          ))}
         </div>
       </section>
     </main>

@@ -1,6 +1,6 @@
 
 main {
-    background-color: white;
+    background-color: rgb(244, 244, 244);
     color: black; 
 }
 
@@ -144,10 +144,11 @@ main {
 /* Trending Products  */
 
 .trending-header {
+    margin-top: 2rem; 
     display: flex; 
     align-items: flex-end; 
     justify-content: space-between; 
-    margin-left: 2rem;
+    margin-left: 15vw;
 }
 
 .trending-header h3 {
@@ -166,5 +167,38 @@ main {
     color: #13ec5b;
     font-weight: 700;
     margin: auto; 
-    margin-right: 2rem; 
+    margin-right: 15vw; 
+}
+
+.products-grid {
+    display: grid;
+    gap: 1.5rem; 
+    grid-template-columns: repeat(5, 1fr); 
+    margin-top: 4vh; 
+    margin-right: 15vw; 
+    margin-left: 15vw; 
+}
+
+@media (min-width: 640px) { /* sm: breakpoint */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+@media (min-width: 768px) { /* md: breakpoint */
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}
+
+@media (min-width: 1024px) { /* lg: breakpoint */
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  }
+}
+
+@media (min-width: 1280px) { /* xl: breakpoint */
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  }
 }
