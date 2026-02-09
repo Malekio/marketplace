@@ -1,0 +1,20 @@
+Django==4.2.10
+djangorestframework==3.14.0
+django-cors-headers==4.2.0
+psycopg2-binary
+
+# Authentication
+djangorestframework-simplejwt==5.3.0
+
+# Images & Files
+Pillow
+
+# Filters
+django-filter==23.3
+
+# Environment variables
+python-dotenv==1.0.0
+
+setuptools
+
+django-cors-headers
