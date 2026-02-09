@@ -1,6 +1,7 @@
 
 main {
     background-color: white;
+    color: black; 
 }
 
 .categories {
@@ -13,7 +14,7 @@ main {
     flex-direction: row;
     align-items: center; 
     justify-content: center; 
-    border-bottom: 0.5px solid grey; 
+    border-bottom: 0.5px solid rgb(245, 244, 244); 
     padding-top: 1rem ;
     padding-bottom: 0.5rem; 
     overflow-x: auto;
@@ -54,4 +55,88 @@ main {
 .category-link:hover,
 .category-link:hover .category-label {
     color: #13ec5b;
+}
+
+/* Hero Banner  */
+
+.hero-banner {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.hero-content {
+    background-image: linear-gradient(to right, rgba(4, 24, 8, 0.7), transparent),url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1xJ7Xzx14__PLGFOOYuU5omyBNJYaS0ucelpx6UMoZyAiG56NPWM1uelbHmHMDxgk61Z_HsOkym7RgGoggxB3VkhN9-ScxpX7tG6bq-NQvDSnFzr7z1uOdfbwZsoQayhaD8qWCWgOugfg4346mCeZxLSt-iHtHl65Jo4y0QeMnaZsGLR9UFNPWT0cyduBEAcpXcwhK-jDrlIbeea-BA70XwxI3ijq0LqHrJXm9r4XIQgovXzOtvbZG4nwt-MikXFOgj-CPbm1cJ72"); 
+    background-size : cover; 
+    background-repeat: no-repeat; 
+    width: clamp(40vw, 70vw, 80vw); 
+    border-radius: 30px;
+    margin-bottom: 4rem; 
+}
+
+.hero-content span {
+    display: inline-block;
+    margin-top: clamp(4rem, 8vh, 8rem);
+    margin-left: clamp(3rem, 6vw, 10rem);
+    margin-bottom: clamp(.5rem, 1vh, 3rem); 
+    padding: 0.3rem 1rem;  
+    background-color: #13ec5b;
+    font-weight: 700;
+    border-radius: 40px; 
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+}
+
+.hero-content h2 {
+    margin-left: clamp(3rem, 6vw, 10rem);
+    margin-bottom: clamp(1rem, 3vh, 3rem); 
+    font-size: 6vh;
+    color: white; 
+    letter-spacing: -0.03em;
+}
+
+.hero-content p {
+    color: white; 
+    margin-left: clamp(3rem, 6vw, 10rem);
+    font-size: clamp(1rem, 2vh, 3rem);
+    font-weight: 500;
+}
+
+.primary-btn {
+    margin: 3rem; 
+    margin-left: clamp(3rem, 6vw, 10rem);
+    margin-right: 1rem; 
+    padding: 1rem 2.2rem; 
+    background-color: #13ec5b; 
+    border: none; 
+    border-radius: 26px; 
+    color: black; 
+    font-weight: 600;
+    font-size: clamp(1rem, 2vh, 5rem); 
+    backdrop-filter: blur(8px);
+    transition: box-shadow 200ms ease; 
+}
+
+.hero-buttons {
+    margin-bottom: 3rem; 
+}
+.primary-btn:hover {
+    box-shadow: 0 0 20px rgba(19, 236, 91, 0.4);
+}
+
+.secondary-btn {
+    margin: 3rem; 
+    margin-left: 0; 
+    padding: 1rem 2.2rem; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(188, 188, 188); 
+    border-radius: 26px; 
+    color: white; 
+    font-weight: 600;
+    font-size: clamp(1rem, 2vh, 5rem); 
+    transition: background-color 200ms ease; 
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }

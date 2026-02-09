@@ -40,6 +40,19 @@ export default function HomePage() {
             </a>
         </div>
       </section>
+
+      <section className='hero-banner'>
+        <div className="hero-content">
+          <span><b>FLASH SALE NOW LIVE</b></span>
+          <h2>Fresh Deals <br />Approved Daily</h2>
+          <p>Discover unique products from verified vendors. Manual order <br />approval for your safety and security.</p>
+
+          <div className='hero-buttons'>
+            <button className='primary-btn'>Shop Now</button>
+            <button className='secondary-btn'>Explore Products</button>
+          </div>
+        </div>
+      </section>
     </main>
   ); 
 }
