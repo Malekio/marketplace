@@ -1,0 +1,279 @@
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+/* ===== GLOBAL HEADER STYLES ===== */
+header {
+  /* Layout & Positioning */
+  position: relative;
+  top: 0;
+  z-index: 50;
+  
+  /* Colors & Borders */
+  background-color: white;
+  border-bottom: 1px solid #f3f4f6;
+  color: black; 
+  
+  /* Spacing */
+  padding: 1rem 1.5rem;
+  
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ===== LOGO SECTION ===== */
+header > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* 10 * 0.25rem = 2.5rem */
+  flex-shrink: 0;
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Shopping basket icon background */
+.logo-icon {
+  color: white; 
+  background-color: #13ec5b; /* primary color */
+  padding: 0.375rem; /* 1.5 * 0.25rem = 0.375rem */
+  border-radius: 0.5rem;
+}
+
+/* Logo text */
+header h1 {
+  font-size: 1.6rem; 
+  font-weight: 1000; /* font-extrabold */
+  letter-spacing: -0.0025em; /* tracking-tight */
+}
+
+/* "Place" part of logo */
+header h1 span {
+  color: #13ec5b; /* primary color */
+}
+
+/* ===== NAVIGATION ===== */
+nav.links {
+  display: none;
+}
+
+/* Show on extra large screens */
+@media (min-width: 1280px) {
+  nav.links {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* 8 * 0.25rem = 2rem */
+  }
+}
+
+/* Navigation links */
+nav.links a {
+  font-size: 1.3rem; 
+  font-weight: 700; 
+  color: #111813;
+  text-decoration: none;
+  transition: color 150ms ease;
+  transform: scaleX(0.9); 
+}
+
+nav.links a:hover {
+  color: #13ec5b; /* primary color on hover */
+}
+
+nav.links a:first-child {
+  color: #13ec5b; /* Primary color for active link */
+}
+
+/* ===== SEARCH BAR ===== */
+/* Search container */
+header > div:nth-child(3) {
+  flex: 1;
+  max-width: 32rem; /* max-w-2xl = 32rem */
+}
+
+/* Search wrapper */
+.search-wrapper {
+  position: relative;
+}
+
+/* Search icon */
+.search-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 1rem; /* pl-4 = 1rem */
+  color: #9ca3af; /* gray-400 */
+  pointer-events: none;
+}
+
+/* Search input focus effect */
+.search-wrapper:focus-within .search-icon {
+  color: #13ec5b; /* primary color */
+}
+
+/* Search input */
+header input[type="text"] {
+  width: 100%;
+  height: 5vh; 
+  padding: 0.625rem 1rem 0.625rem 2.75rem;
+  background-color: #eff0f1;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.875rem; 
+  transition: all 200ms ease;
+} 
+
+
+/* Search input focus state */
+header input[type="text"]:focus {
+  background-color: white;
+  outline: none;
+  box-shadow: 0 0 0 2px #13ec5b;
+}
+
+header input[type="text"]::placeholder {
+    color: #90949c; 
+}
+
+/* ===== ACTION BUTTONS ===== */
+/* Button container */
+header > div:nth-child(4) {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* 6 * 0.25rem = 1.5rem */
+  flex-shrink: 0;
+}
+
+/* Action buttons */
+.cart, header button:last-child {
+  padding: 0.5rem; /* p-2 = 0.5rem */
+  border-radius: 9999px; /* rounded-full */
+  transition: background-color 150ms ease;
+}
+
+.wishlist {
+    background-color: white;
+    color: black; 
+    border: 0; 
+}
+
+.cart {
+    background-color: white;
+    color: black; 
+    border: 0; 
+}
+/* Cart badge */
+.cart::after {
+  content: "3";
+  position: absolute;
+  top: 0.25rem; /* top-1 = 0.25rem */
+  right: 0.25rem; /* right-1 = 0.25rem */
+  width: 1rem; /* size-4 = 1rem */
+  height: 1rem;
+  background-color: #13ec5b; /* primary color */
+  color: white;
+  font-size: 0.625rem; /* text-[10px] */
+  font-weight: 700; /* font-bold */
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 3 * 0.25rem = 0.75rem */
+  border-left: 2px solid #e5e7eb; /* border-gray-200 */
+  cursor: pointer;
+  padding-left: 2rem; 
+  margin-left: 2rem; 
+}
+
+.profile h2 {
+  display: none;
+  font-size: clamp(1rem, 2vh, 3rem); 
+}
+
+.profile img {
+  width: 3rem; 
+  height: 3rem;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: border-color 150ms ease;
+}
+
+.profile:hover img {
+  border-color: #13ec5b; /* group-hover:border-primary */
+}
+
+/* Show profile name on small screens */
+@media (min-width: 640px) {
+  .profile h2 {
+    display: block;
+    text-align: right;
+  }
+  
+  .profile h2::after {
+    content: "Pro Buyer";
+    display: block;
+    font-size: 0.625rem; /* text-[10px] */
+    color: #6b7280; /* gray-500 */
+    text-transform: uppercase;
+    font-weight: 500; /* font-medium */
+    margin-top: 0.125rem;
+  }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+/* @media (prefers-color-scheme: dark) {
+  header {
+    background-color: #102216; 
+    border-bottom-color: #1f2937; 
+  }
+  
+  nav.links a {
+    color: white;
+  }
+  
+  header input[type="text"] {
+    background-color: #1f2937; 
+    color: white;
+  }
+  
+  header input[type="text"]:focus {
+    background-color: #111813;
+  }
+  
+  .cart:hover, header button:last-child:hover {
+    background-color: #1f2937; 
+  }
+  
+  .cart::after {
+    border-color: #102216; 
+  }
+  
+  .profile {
+    border-left-color: #1f2937; 
+  }
+} */
+
+/* ===== RESPONSIVE PADDING ===== */
+@media (min-width: 1024px) {
+  header {
+    padding-left: 5rem; /* lg:px-20 = 5rem */
+    padding-right: 5rem;
+  }
+}

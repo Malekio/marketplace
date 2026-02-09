@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import './layout.css'; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +21,49 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* link to load the icons */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <header>
+        <div className="logo-container">
+          <div className="logo-icon">
+            <span className="material-symbols-outlined">shopping_basket</span>
+          </div>
+          <h1>Market<span>Place</span></h1>
+        </div>
+        
+        <nav className="links">
+          <a href="">Home</a>
+          <a href="">Explore</a>
+          <a href="">Orders <span className="badge-dot"></span></a>
+        </nav>
+        
+        <div className="search-wrapper">
+          <div className="search-icon">
+            <span className="material-symbols-outlined">search</span>
+          </div>
+          <input type="text" placeholder="Search for products, brands, or verified vendors..."/>
+        </div>
+        
+        <div>
+          <button className="cart">
+            <span className="material-symbols-outlined">shopping_cart</span>
+          </button>
+          <button className="wishlist">
+            <span className="material-symbols-outlined">list</span>
+          </button>
+        </div>
+        
+        <div className="profile">
+          <h2>Alex Johnson</h2>
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmQFj9b1k0eRRyVjN2-06aRr6KnOZ3tKrJ1dGzYkOx0XYjTei5bR1HE2jHa37MBJWtYOb81w0PzQk3_1aPMgluOcIe7YjbvQM4DxgtW5jH9Gx7SjE272Rq6UkFmUlQ_qr2mmh2qPevGEwjaPpZOFrDeMtAhP-iROqH6WM-KR0PtY5LiqNe5F9fh0WX9inC9s5bpjpHVqBhtquG26Tyq-4B0MdrXWmvHWh8HXR3vZBqeMgXEdcL4qu6ars9uCXr6gHDhVBrQirBNa2i" alt="Profile Picture" />
+        </div>
+      </header>
         {children}
       </body>
     </html>
