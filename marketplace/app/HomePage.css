@@ -140,3 +140,31 @@ main {
 .secondary-btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Trending Products  */
+
+.trending-header {
+    display: flex; 
+    align-items: flex-end; 
+    justify-content: space-between; 
+    margin-left: 2rem;
+}
+
+.trending-header h3 {
+    font-size: 2rem; 
+    font-weight: 700; 
+    letter-spacing: -0.025em;
+}
+
+.trending-header p {
+    color: rgb(87, 86, 86); 
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.view-all {
+    color: #13ec5b;
+    font-weight: 700;
+    margin: auto; 
+    margin-right: 2rem; 
+}

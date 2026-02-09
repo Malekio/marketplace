@@ -53,6 +53,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className='trending-products'>
+        <div className="trending-header">
+          <div>
+            <h3>Trending Now</h3>
+            <p>Most requested products this week</p>
+          </div>
+          <a href="" className='view-all'>
+            Explore All Products <span className='material-symbols-outlined'>arrow_forward</span>
+          </a>
+        </div>
+      </section>
     </main>
   ); 
 }
