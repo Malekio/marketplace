@@ -1,6 +1,5 @@
-
-main {
-    background-color: rgb(244, 244, 244);
+body {
+    background-color: white;
     color: black; 
 }
 
@@ -66,7 +65,7 @@ main {
 }
 
 .hero-content {
-    background-image: linear-gradient(to right, rgba(4, 24, 8, 0.7), transparent),url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1xJ7Xzx14__PLGFOOYuU5omyBNJYaS0ucelpx6UMoZyAiG56NPWM1uelbHmHMDxgk61Z_HsOkym7RgGoggxB3VkhN9-ScxpX7tG6bq-NQvDSnFzr7z1uOdfbwZsoQayhaD8qWCWgOugfg4346mCeZxLSt-iHtHl65Jo4y0QeMnaZsGLR9UFNPWT0cyduBEAcpXcwhK-jDrlIbeea-BA70XwxI3ijq0LqHrJXm9r4XIQgovXzOtvbZG4nwt-MikXFOgj-CPbm1cJ72"); 
+    background-image: linear-gradient(45deg, rgba(4, 16, 6, 0.7), transparent),url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1xJ7Xzx14__PLGFOOYuU5omyBNJYaS0ucelpx6UMoZyAiG56NPWM1uelbHmHMDxgk61Z_HsOkym7RgGoggxB3VkhN9-ScxpX7tG6bq-NQvDSnFzr7z1uOdfbwZsoQayhaD8qWCWgOugfg4346mCeZxLSt-iHtHl65Jo4y0QeMnaZsGLR9UFNPWT0cyduBEAcpXcwhK-jDrlIbeea-BA70XwxI3ijq0LqHrJXm9r4XIQgovXzOtvbZG4nwt-MikXFOgj-CPbm1cJ72"); 
     background-size : cover; 
     background-repeat: no-repeat; 
     width: clamp(40vw, 70vw, 80vw); 
@@ -201,4 +200,69 @@ main {
   .products-grid {
     grid-template-columns: repeat(5, 1fr); /* 5 columns */
   }
+}
+
+
+/* Commertials Section  */
+
+.commercials-container {
+    background-color: rgb(239, 239, 238);
+    width: clamp(40vw, 70vw, 80vw); 
+    margin: auto; 
+    margin-top: 5rem; 
+    margin-bottom: 5rem; 
+    padding: 3rem; 
+    border: none; 
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem; 
+}
+
+.ad p {
+    width: 45%; 
+    font-size: clamp(0.5rem, 1vw, 3rem);
+    color: rgb(73, 73, 73); 
+}
+
+.vendors {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vendors span {
+    font-weight: 700;
+}
+
+.vendors span span {
+    color: #13ec5b;
+}
+
+.vendors img {
+    border: 5px solid white; 
+    border-radius: 9999px; 
+    width: 3vw; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-left: -1rem; 
+}
+
+.vendors-count {
+    font-size: clamp(0.005rem, 1vw, 1rem); 
+    border: 5px solid white; 
+    border-radius: 9999px; 
+    width: 2.88vw; 
+    height: 2.88vw;
+    text-align: center;
+    padding-top: 0.7rem; 
+    background-color: rgb(220, 165, 132) ;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-right: 2rem; 
+    margin-left: -1rem; 
 }
