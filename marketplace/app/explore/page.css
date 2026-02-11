@@ -1,0 +1,147 @@
+
+
+body {
+    background-color: white;
+    color: black; 
+}
+
+.trending {
+    padding: 2vw; 
+}
+
+.trending h2 {
+    border-left: 12px solid #13ec5b; 
+    border-radius: 9px;     
+    padding-left: 1rem;
+    font-size: clamp(1rem, 2vw, 5rem);
+    margin-bottom: 3rem; 
+}
+
+.trending-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;  
+}
+
+.primary-display {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 66%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuACu8UOnrK5TKbdSvY4qWay5on8_kHYIfupsyQ87Pigts624PNAruIdqxaZxEssPxAPBMbif9PRvam9KDWqofMzdV0StVPF83qlX-WJFGT9XqYNpaHmoYqI91CMx3jVo8vJEDQFi7oGZqohtAvJUf6pJJf-j8YdC3w1UY1nI1kCK5EyLvb2wbBwqYBZBj27-49eF6lyLoMgS-dobvQw-1iDmGF24EvQNPDgN3_Xa92vTMUv_-ekA4OqCyzEJT2AwZoHbAI7qn8E0TtD"); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    width: 40%; 
+    height: 64vh;
+    border-radius: 3rem; 
+
+    padding-left: 2rem; 
+    
+    position: relative; 
+
+    transition: box-shadow 200ms ease, background-size 500ms ease; 
+    overflow: hidden; 
+}
+
+.primary-display:hover  {
+    box-shadow: 20px 20px 25px -5 rgba(0, 0, 0, 0.1);
+}
+
+.primary-display span {
+    position: absolute; 
+    top: 47%;
+    background-color: #13ec5b; 
+    color: rgb(3, 23, 64); 
+    font-weight: 700; 
+    font-size: clamp(0.5rem, 0.7vw, 2rem); 
+    padding: 5px 10px; 
+    border-radius: 0.7rem; 
+}
+
+.secondary-display {
+    width: 30%; 
+}
+
+.primary-display h1 {
+    position: absolute; 
+    top: 53%; 
+    color: white; 
+    font-size: clamp(2rem, 3vw, 4rem); 
+    line-height: 1.05;
+}
+
+.primary-display p {
+    position: absolute; 
+    top: 76%;
+    color: white; 
+}
+
+.primary-display button {
+    position: absolute;
+    top: 85%; 
+    padding: 1rem 2rem;
+    border: none; 
+    border-radius: 2rem;
+    font-weight: 700;
+    color: black; 
+    background-color: white; 
+    font-size: 0.9vw; 
+}
+
+.secondary-display {
+    display: flex; 
+    flex-direction: column;
+    gap: 2rem; 
+}
+
+.up {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 90%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBncgRH84vMSVAFWgNxUKUMwK0eN0cUphWeYeHJlekVuDk-vR6rH6JZJCSxiQBLsr1SJmoDwThQPPKX2XpKd1pLHMXucxdgpFExd2Hra-EhOD6FAbeTXq8llvC0i8MFS4w7V2FhwiPZXYxizZNwOJqWK2yeToxto5bhyxMFKlUKLOkIl5dv4JEG0Yo2uafk68QgloT87NyzDpFhhtY6es6ay_fGILZVp5nJ8C_DNPKDwS8ZaFU7j9MYpPfUxizwLl_TEOTMK5B6F2sV"); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width: 100%; 
+    height: 30vh; 
+    border: none; 
+    border-radius: 3rem; 
+    padding: 3rem; 
+    padding-top: 7rem; 
+    color: white; 
+}
+
+.up h3 {
+    font-size: 2rem; 
+}
+
+.up a {
+    color: #13ec5b; 
+    font-weight: 700;
+}
+
+.down {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 90%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMKK87WGksikUW2tqfbFSkT0D6Hf8m_7yizTmjLInDq8e96g_iYH1FtwsQpZGB47uEIqmMlQc6tsED4BE0vWwzPWi-x8n2Xf3McIZ0LNeNVQbfK6is1aei3Mtl0ouHf4YutdW5oCT5psJ99UofxsJwXdmudkFfEVN0O3_W2hK6rWRPqIAgxSzUgw3k96ALGt6ykL1ni7PkxJ3AAGCNYh-D-j_xRoFnhvwZ1NvZi3gofonSW7DiFDMW4hnOQDyVaRrVwEqOi_XMuyzy"); 
+    background-size: cover; 
+    background-position: center; 
+    width: 100%; 
+    height: 30vh;
+    border-radius: 3rem; 
+    border: none; 
+
+    padding-top: 5rem;
+    padding-left: 2rem;
+}
+
+.down h3 {
+    font-size: clamp(1rem, 3vh, 5rem); 
+    color: white; 
+}
+
+.down p {
+    color: rgb(212, 212, 212); 
+    font-weight: 500; 
+}
+
+.down button {
+    padding: 1rem 2rem; 
+    border: none ; 
+    border-radius: 1.5rem; 
+    font-weight: 700; 
+}
