@@ -27,7 +27,31 @@ export default function LoginPage() {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Store seller authentication
+      // Test backdoor account (frontend only)
+      const testAccount = {
+        email: 'seller@test.com',
+        password: 'test123'
+      };
+      
+      // Check if user is using test account
+      if (email === testAccount.email && password === testAccount.password) {
+        // Store seller authentication
+        const sellerData = {
+          email,
+          name: 'Test Seller',
+          isAuthenticated: true,
+          isVerified: true,
+          loginTime: new Date().toISOString(),
+        };
+        
+        localStorage.setItem('seller', JSON.stringify(sellerData));
+        
+        // Redirect to vendor dashboard
+        router.push('/vendor-dashboard');
+        return;
+      }
+      
+      // Regular login flow (would call backend)
       const sellerData = {
         email,
         isAuthenticated: true,
@@ -97,6 +121,13 @@ export default function LoginPage() {
             {loading ? 'Logging in...' : 'Login to Dashboard'}
             <span className="material-symbols-outlined">arrow_forward</span>
           </button>
+
+          <div className="test-credentials">
+            <strong>🔓 Test Backdoor Account (Development):</strong>
+            Email: <code>seller@test.com</code>
+            <br />
+            Password: <code>test123</code>
+          </div>
         </form>
 
         <div className="auth-divider">or</div>

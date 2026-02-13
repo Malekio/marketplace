@@ -2,7 +2,7 @@
 
 import './page.css';
 import ProductCard from '../components/ProductCard';
-import { categories } from '../data/products';
+import { categories, products as localProducts } from '../data/products';
 import { useState, useEffect } from 'react';
 
 export default function ExplorePage() {
@@ -18,9 +18,14 @@ export default function ExplorePage() {
           // Handle paginated response
           const productsList = Array.isArray(data) ? data : data.results || [];
           setProducts(productsList);
+        } else {
+          // Fallback to local data
+          setProducts(localProducts);
         }
       } catch (err) {
         console.error('Error fetching products:', err);
+        // Fallback to local data when API fails
+        setProducts(localProducts);
       } finally {
         setLoading(false);
       }

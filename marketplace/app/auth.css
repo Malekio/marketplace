@@ -310,6 +310,31 @@
   margin: 0.25rem 0 0 0;
 }
 
+/* Test Credentials Hint */
+.test-credentials {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #166534;
+}
+
+.test-credentials strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #15803d;
+}
+
+.test-credentials code {
+  background-color: #ecfdf5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-family: 'Courier New', monospace;
+}
+
 /* Focus States */
 input:focus {
   outline: none;

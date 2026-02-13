@@ -3,9 +3,10 @@
 import './HomePage.css';
 import ProductCard from './components/ProductCard';
 import { useState, useEffect } from 'react';
+import { products } from './data/products';
 
 export default function HomePage() {
-  const [products, setProducts] = useState([]);
+  const [products_list, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,9 +18,14 @@ export default function HomePage() {
           // Handle paginated response
           const productsList = Array.isArray(data) ? data : data.results || [];
           setProducts(productsList);
+        } else {
+          // Fallback to local data
+          setProducts(products);
         }
       } catch (err) {
         console.error('Error fetching products:', err);
+        // Fallback to local data when API fails
+        setProducts(products);
       } finally {
         setLoading(false);
       }
@@ -90,7 +96,7 @@ export default function HomePage() {
           </a>
         </div>
         <div className="products-grid">
-          {products.map((product) => (
+          {products_list.map((product) => (
             <ProductCard
             key={product.id}
             product={product}

@@ -2,6 +2,7 @@
 
 import React, { useState, use } from 'react';
 import Link from 'next/link';
+import { products as localProducts } from '../../data/products';
 import '../../product-details.css';
 import '../page.css';
 
@@ -19,9 +20,16 @@ export default function ProductDetailsPage({ params }) {
         if (response.ok) {
           const data = await response.json();
           setProduct(data);
+        } else {
+          // Fallback to local data
+          const localProduct = localProducts.find(p => p.id === parseInt(id));
+          setProduct(localProduct);
         }
       } catch (err) {
         console.error(err);
+        // Fallback to local data on error
+        const localProduct = localProducts.find(p => p.id === parseInt(id));
+        setProduct(localProduct);
       } finally {
         setLoading(false);
       }

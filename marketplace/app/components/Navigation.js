@@ -7,6 +7,7 @@ import './Navigation.css';
 export default function Navigation() {
   const router = useRouter();
   const [isSeller, setIsSeller] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check if seller is authenticated
@@ -25,6 +26,14 @@ export default function Navigation() {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -33,12 +42,19 @@ export default function Navigation() {
           <h1>Marketplace</h1>
         </div>
 
-        <nav className="navbar-links">
-          <a href="/" className="nav-link">Home</a>
-          <a href="/explore" className="nav-link">Explore</a>
-          <a href="/deals" className="nav-link">Deals</a>
+        <button className="hamburger-menu" onClick={toggleMobileMenu}>
+          <span className="material-symbols-outlined">{mobileMenuOpen ? 'close' : 'menu'}</span>
+        </button>
+
+        <nav className={`navbar-links ${mobileMenuOpen ? 'active' : ''}`}>
+          <a href="/" className="nav-link" onClick={handleNavClick}>Home</a>
+          <a href="/explore" className="nav-link" onClick={handleNavClick}>Explore</a>
+          <a href="/deals" className="nav-link" onClick={handleNavClick}>Deals</a>
           <button 
-            onClick={handleSellClick} 
+            onClick={(e) => {
+              handleSellClick(e);
+              handleNavClick();
+            }} 
             className="nav-link sell-btn"
             title={isSeller ? 'Go to Dashboard' : 'Login to Sell'}
           >

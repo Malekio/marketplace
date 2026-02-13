@@ -78,6 +78,20 @@
     color: #0bc74a;
 }
 
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #111827;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.hamburger-menu span {
+    font-size: 1.5rem;
+}
+
 .login-icon {
     font-size: 1rem;
     opacity: 0.7;
@@ -194,18 +208,56 @@
 @media (max-width: 768px) {
     .navbar-container {
         padding: 0.75rem 1rem;
+        flex-wrap: wrap;
     }
 
     .navbar-brand h1 {
         font-size: 1.25rem;
     }
 
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: 3;
+    }
+
     .navbar-links {
         display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        gap: 0;
+        width: 100vw;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        border-bottom: 1px solid #f3f4f6;
+        z-index: 40;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1.5rem;
+        border-bottom: 1px solid #f3f4f6;
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+        background-color: #f9fafb;
     }
 
     .navbar-actions {
         flex: 0;
+        order: 2;
     }
 
     .search-box {
