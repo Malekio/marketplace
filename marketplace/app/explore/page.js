@@ -1,3 +1,5 @@
+'use client';
+
 import './page.css';
 import ProductCard from '../components/ProductCard';
 import { products, categories } from '../data/products';

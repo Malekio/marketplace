@@ -1,6 +1,30 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import './Navigation.css';
 
 export default function Navigation() {
+  const router = useRouter();
+  const [isSeller, setIsSeller] = useState(false);
+
+  useEffect(() => {
+    // Check if seller is authenticated
+    const seller = localStorage.getItem('seller');
+    setIsSeller(!!seller);
+  }, []);
+
+  const handleSellClick = (e) => {
+    e.preventDefault();
+    
+    const seller = localStorage.getItem('seller');
+    if (seller) {
+      router.push('/vendor-dashboard');
+    } else {
+      router.push('/auth/login');
+    }
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -13,7 +37,14 @@ export default function Navigation() {
           <a href="/" className="nav-link">Home</a>
           <a href="/explore" className="nav-link">Explore</a>
           <a href="/deals" className="nav-link">Deals</a>
-          <a href="/vendor-dashboard" className="nav-link">Sell</a>
+          <button 
+            onClick={handleSellClick} 
+            className="nav-link sell-btn"
+            title={isSeller ? 'Go to Dashboard' : 'Login to Sell'}
+          >
+            Sell
+            {!isSeller && <span className="material-symbols-outlined login-icon">login</span>}
+          </button>
         </nav>
 
         <div className="navbar-actions">
