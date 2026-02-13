@@ -2,9 +2,32 @@
 
 import './page.css';
 import ProductCard from '../components/ProductCard';
-import { products, categories } from '../data/products';
+import { categories } from '../data/products';
+import { useState, useEffect } from 'react';
 
 export default function ExplorePage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/products/');
+        if (response.ok) {
+          const data = await response.json();
+          // Handle paginated response
+          const productsList = Array.isArray(data) ? data : data.results || [];
+          setProducts(productsList);
+        }
+      } catch (err) {
+        console.error('Error fetching products:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <main>
         <div className="trending">

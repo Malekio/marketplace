@@ -1,15 +1,44 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState, use } from 'react';
 import Link from 'next/link';
 import '../../product-details.css';
-import { products } from '../../data/products';
+import '../page.css';
 
 export default function ProductDetailsPage({ params }) {
+  const { id } = use(params);
   const [quantity, setQuantity] = useState(1);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const product = products.find(p => p.id === parseInt(params.id));
+  React.useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`http://localhost:8000/api/products/${id}/`);
+        if (response.ok) {
+          const data = await response.json();
+          setProduct(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <main className="product-details-container">
+        <div className="not-found">
+          <h1>Loading...</h1>
+        </div>
+      </main>
+    );
+  }
 
   if (!product) {
     return (
@@ -97,8 +126,8 @@ export default function ProductDetailsPage({ params }) {
           {/* Price Card */}
           <div className="price-card">
             <div className="price-row">
-              <span className="current-price">${product.price.toFixed(2)}</span>
-              <span className="original-price">${(product.price * 1.2).toFixed(2)}</span>
+              <span className="current-price">${typeof product.price === 'string' ? product.price : parseFloat(product.price).toFixed(2)}</span>
+              <span className="original-price">${(parseFloat(product.price) * 1.2).toFixed(2)}</span>
               <span className="discount">-15%</span>
             </div>
             <p className="discount-text">Limited time offer (Ends in 2 days)</p>
@@ -285,7 +314,7 @@ export default function ProductDetailsPage({ params }) {
           <img src={product.imageUrl} alt={product.name} />
           <div className="sticky-details">
             <h4>{product.name}</h4>
-            <p className="sticky-price">${product.price.toFixed(2)}</p>
+            <p className="sticky-price">${typeof product.price === 'string' ? product.price : parseFloat(product.price).toFixed(2)}</p>
           </div>
         </div>
         <div className="sticky-actions">

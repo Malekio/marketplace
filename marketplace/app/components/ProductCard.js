@@ -22,9 +22,9 @@ export default function ProductCard({ product }) {
           )}
         </div>
         <h4>{product.name}</h4>
-        <div className="vendor">by <span><a href={`/vendor/${product.vendor}`} onClick={(e) => e.preventDefault()}>{product.vendor}</a></span></div>
+        <div className="vendor">by <span className="vendor-name">{product.vendor}</span></div>
         <div className="product-footer">
-          <p className="price">${product.price.toFixed(2)}</p>
+          <p className="price">${typeof product.price === 'string' ? product.price : product.price.toFixed(2)}</p>
           <button className="add-to-cart" onClick={(e) => e.preventDefault()}>
             <span className="material-symbols-outlined">add_shopping_cart</span>
           </button>

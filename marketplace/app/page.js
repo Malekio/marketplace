@@ -2,9 +2,31 @@
 
 import './HomePage.css';
 import ProductCard from './components/ProductCard';
-import { products } from './data/products';
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/products/');
+        if (response.ok) {
+          const data = await response.json();
+          // Handle paginated response
+          const productsList = Array.isArray(data) ? data : data.results || [];
+          setProducts(productsList);
+        }
+      } catch (err) {
+        console.error('Error fetching products:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <main>
       <section className='categories'>
