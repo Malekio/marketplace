@@ -1,4 +1,6 @@
 import './page.css';
+import ProductCard from '../components/ProductCard';
+import { products, categories } from '../data/products';
 
 export default function ExplorePage() {
   return (
@@ -25,8 +27,6 @@ export default function ExplorePage() {
                         <div>
                             <p>Supporting 200+ local makers worldwide</p>
                             <div className="images">
-                                <img src="" alt="" />
-                                <img src="" alt="" />
                             </div>
                         </div>
                         <button>Meet the Creators</button>
@@ -34,6 +34,39 @@ export default function ExplorePage() {
                 </div>
             </div>
         </div>
+
+        <section className="explore-products">
+            <div className="explore-header">
+                <h2>Explore All Products</h2>
+                <div className="explore-controls">
+                    <select className="sort-select">
+                        <option>Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest</option>
+                        <option>Best Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div className="category-filter">
+                {categories.map((cat) => (
+                    <button key={cat.id} className="category-filter-btn">
+                        <span className="material-symbols-outlined">{cat.icon}</span>
+                        {cat.name}
+                    </button>
+                ))}
+            </div>
+
+            <div className="products-grid">
+                {products.map((product) => (
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
+            </div>
+        </section>
     </main>
   );
 }
