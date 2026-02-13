@@ -3,12 +3,19 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .models import Product, ProductImage
+from .serializers import ProductListSerializer, ProductDetailSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     """ViewSet for managing products."""
-    queryset = Product.objects.filter(is_active=True)
+    queryset = Product.objects.filter(is_active=True).select_related('seller').prefetch_related('images')
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_serializer_class(self):
+        """Return appropriate serializer based on action."""
+        if self.action == 'retrieve':
+            return ProductDetailSerializer
+        return ProductListSerializer
 
     def get_queryset(self):
         """Filter products based on query parameters."""

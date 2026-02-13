@@ -9,6 +9,7 @@ class User(AbstractUser):
     """
     phone_num = models.CharField(max_length=20, blank=True, null=True)
     image = models.ImageField(upload_to='users/images/', null=True, blank=True)
+    is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
